@@ -2,6 +2,9 @@ name: Deploy to GitHub Pages
 
 # Builds and publishes the app to https://englishflowofficial.github.io/banana-lesson/
 # every time main moves, and on demand from the Actions tab.
+#
+# One-time repository setting (a workflow token cannot change it for you):
+#   Settings → Pages → Build and deployment → Source: GitHub Actions
 on:
   push:
     branches: [main]
@@ -24,12 +27,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -38,10 +41,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Type-check and unit tests
-        run: |
-          npx tsc -b
-          npm run test
+      - name: Type-check
+        run: npx tsc -b
+
+      - name: Unit and integration tests
+        run: npm run test
 
       - name: Build the production bundle
         run: npm run build
@@ -52,12 +56,14 @@ jobs:
         run: touch dist/.nojekyll
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload the built site
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
+          # dist/.nojekyll starts with a dot, so hidden files must be included.
+          include-hidden-files: true
 
   deploy:
     name: Publish
@@ -69,4 +75,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
