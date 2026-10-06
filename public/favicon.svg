@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Banana">
+  <rect width="64" height="64" rx="16" fill="#FFFCF5" />
+  <path
+    d="M18 13c-1.6 0-2.9 1.3-2.9 2.9 0 12.4 9.4 24.7 22.4 28.6 3.4 1 6.5-1.9 6.5-4.9 0-1.7-1.2-3.1-2.8-3.5C31.6 33.5 24 25.2 24 16.6c0-2-1.6-3.6-3.6-3.6H18z"
+    fill="#F5C518"
+  />
+  <path
+    d="M18.4 15.4c0 11 8.2 21.6 19.6 25.4"
+    fill="none"
+    stroke="#FFE79A"
+    stroke-width="2.4"
+    stroke-linecap="round"
+  />
+  <path
+    d="M15.6 12.4c-2 0-3.4 1.4-3.4 3.2 0 3.2 2.6 5.4 5.8 5.4"
+    fill="none"
+    stroke="#8A6600"
+    stroke-width="2.6"
+    stroke-linecap="round"
+  />
+  <path
+    d="M44 40.4c3 1.9 4.6 4.6 4.6 7.6"
+    fill="none"
+    stroke="#D9A400"
+    stroke-width="2.6"
+    stroke-linecap="round"
+  />
+</svg>
